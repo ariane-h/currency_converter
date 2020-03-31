@@ -11,10 +11,15 @@
     <h1>Currency Converter</h1>
     <div id="app">
 
+        
 
+        <label for="exchange_rate_select">Select an Exchange Currency:</label>
+        <select id="exchange_rate_select" v-model="selectedExchangeRate">
+          <option disabled value="">Select an exchange rate</option>
+          <option v-for="(rate, currency) in exchangeRates" :value="currency">{{currency}}</option>
+        </select>
 
-
-
+       
     </div>
 
     
