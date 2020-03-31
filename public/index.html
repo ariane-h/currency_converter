@@ -11,22 +11,24 @@
     <h1>Currency Converter</h1>
     <div id="app">
 
-        <label for="convert_amount">Euros:</label>
+        <label for="convert_amount">Input amount to convert:</label>
         <input type="number" v-model.number="conversionAmount" />
-        
 
-        <h2>convert to</h2>
-
-        
-        <label for="rate_select">Select Currency:</label>
-        <select id="rate_select" v-model="selectedTargetRate">
-          <option disabled value="">Select an exchange rate</option>
+        <label for="rate_select">Convert From:</label>
+        <select id="rate_select" v-model="selectedStartRate">
+          <option disabled value="">Select a start rate</option>
           <option v-for="(rate, currency) in exchangeRates" :value="rate">{{currency}}</option>
         </select>
 
-        <h2>Result</h2>
         
-        <h2>Converts to: £ {{ convertedCurrency }}</h2>
+        <label for="rate_select">Convert To:</label>
+        <select id="rate_select" v-model="selectedTargetRate">
+          <option v-for="(rate, currency) in exchangeRates" :value="rate">{{currency}}</option>
+        </select>
+
+        
+        <h2 v-if="conversionResult > 0">Conversion Result: {{ conversionResult }}</h2>
+       
 
        
     </div>

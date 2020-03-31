@@ -6,14 +6,16 @@ document.addEventListener('DOMContentLoaded', () => {
         data: {
             exchangeRates: [],
             selectedTargetRate: 0,
+            selectedStartRate: 0,
             conversionAmount: 0,
         },
         mounted(){
             this.getRates()
         },
         computed: {
-            convertedCurrency: function(){
-                return (this.conversionAmount * this.selectedTargetRate).toFixed(2);
+            conversionResult: function(){
+                return ( ( (1 / this.selectedStartRate) * this.selectedTargetRate) * this.conversionAmount ).toFixed(2);
+                // return (this.conversionAmount * this.selectedTargetRate).toFixed(2);
              },
         },
         methods: {
